@@ -50,3 +50,46 @@
   ![image-20220719233553504](C:\Users\kiwio\AppData\Roaming\Typora\typora-user-images\image-20220719233553504.png)
 
 - 단점: 스크립트 일시 정지, 스타링 X
+
+----
+
+a = 3 ->  a에 3을 넣어 주기
+
+a == 3 -> a와 3을 비교, 값만 비교 (동등 연산자)
+
+=== -> 타입까지 비교 (일치 연산자)
+
+```javascript
+const isAdult = age > 19;
+if(!isAdult) {
+    console.log('미성년자는 출입 불가능합니다.')
+}
+```
+
+- 이러한 방식으로 boolean 변수로 사용 가능
+
+```javascript
+// 우선 순위
+// 여자고, 이름이 Sally이거나 성인이면 통과
+
+const gender = 'M';
+const name = 'John';
+const isAdult = true;
+
+if(gender === 'F' && name === "Sally" || isAdult) {
+	console.log('통과')
+} else {
+	console.log('실패')
+}
+// 이 경우 console에 '통과'로 찍힘
+// AND 연산자가 우선순위가 높아서 'gender === 'F' && name === "sally"'가 먼저 처리되고,
+// 그 이후에 isAdult가 처리되기 때문에
+
+// 의도한 바대로 표현해 주려면 중간에 괄호를 쳐 줘야 한다
+// 이름이 Sally이거나 성인
+if(gender === 'F' && (name === "Sally" || isAdult)) {
+	console.log('통과')
+} else {
+	console.log('실패')
+}
+```
