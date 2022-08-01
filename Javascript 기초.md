@@ -2,7 +2,7 @@
 
 - 변수 선언
 
-  - let: 변할 수 있는 값
+  - **let**: 변할 수 있는 값
   - const: 변하지 않는 값
 
   1. 변수는 문자, 숫자, $, _만 사용 가능
@@ -93,3 +93,28 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
 	console.log('실패')
 }
 ```
+
+-----
+
+- 반복문
+
+  ```
+  do {
+  	i++;
+  } while (i < 10)
+  ```
+  
+  ----
+
+- 함수
+
+  ```
+  function sayHello(name) {
+  	const msg = `Hello, ${name}`;
+  	console.log(msg);
+  }
+  
+  sayHello(Tom);
+  ```
+
+  =>  "Hello, Tom" 출력
