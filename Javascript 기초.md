@@ -98,7 +98,7 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
 
 - 반복문
 
-  ```
+  ```javascript
   do {
   	i++;
   } while (i < 10)
@@ -108,7 +108,7 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
 
 - 함수
 
-  ```
+  ```javascript
   function sayHello(name) {
   	const msg = `Hello, ${name}`;
   	console.log(msg);
@@ -118,3 +118,64 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
   ```
 
   =>  "Hello, Tom" 출력
+  
+  ```javascript
+  function sayHello(name) {
+  	let msg = 'Hello';
+      if(name) {
+  	msg += `. ${name}`;
+      }
+      console.log(msg);
+  }
+  // 여기서 msg는 지역 변수여서 함수 밖에서는 못 씀
+  ```
+  
+  - 전역 변수보다는 함수에 특화된 지역 변수를 사용하는 것이 좋다 
+  
+  ```javascript
+  function sayHello(name) {
+  	let newName = name || `friend` // 매개 변수를 입력하지 않으면 friend 넣기
+      let msg = `Hello, ${newName}`
+      console.log(msg)
+  }
+  	sayHello(); // Hello, friend 출력
+  	sayHello('Jane'); // Hello, Jane 출력
+  ```
+  
+  ```javascript
+  // 매개 변수의 디폴트 값 설정하기
+  function sayHello(name = 'friend') {
+  	let msg = `Hello, ${name}`
+      console.log(msg)
+  }
+  	sayHello(); // Hello, friend 출력
+  	sayHello('Jane'); // Hello, Jane 출력
+  ```
+
+  - return으로 값 반환
+
+    ```javascript
+    fucntion add(num1, num2) {
+    	return num1 + num2;
+    }
+    const result = add(2,3);
+    console.log(result) // 5 출력
+    ```
+
+- return 할 게 없거나 return문만 있으면 undefined만 출력하고 종료
+  - 함수를 종료하려는 목적으로 return만 사용하기도 함
+
+```javascript
+function showError() {
+	alert('에러가 발생했습니다.');
+	return;
+	alert('이 코드는 절대 실행되지 않습니다.')
+}
+const result = showError();
+console.log(result);
+```
+
+​	⚓팁
+
+- 한 번에 한 작업에 집중
+- 읽기 쉽고 어떤 동작을 할 수 있는지 알기 쉽게 네이밍
