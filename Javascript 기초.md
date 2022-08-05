@@ -103,10 +103,10 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
   	i++;
   } while (i < 10)
   ```
-  
+
   ----
 
-- 함수
+  #### 함수
 
   ```javascript
   function sayHello(name) {
@@ -118,7 +118,7 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
   ```
 
   =>  "Hello, Tom" 출력
-  
+
   ```javascript
   function sayHello(name) {
   	let msg = 'Hello';
@@ -129,9 +129,9 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
   }
   // 여기서 msg는 지역 변수여서 함수 밖에서는 못 씀
   ```
-  
+
   - 전역 변수보다는 함수에 특화된 지역 변수를 사용하는 것이 좋다 
-  
+
   ```javascript
   function sayHello(name) {
   	let newName = name || `friend` // 매개 변수를 입력하지 않으면 friend 넣기
@@ -141,7 +141,7 @@ if(gender === 'F' && (name === "Sally" || isAdult)) {
   	sayHello(); // Hello, friend 출력
   	sayHello('Jane'); // Hello, Jane 출력
   ```
-  
+
   ```javascript
   // 매개 변수의 디폴트 값 설정하기
   function sayHello(name = 'friend') {
@@ -179,3 +179,98 @@ console.log(result);
 
 - 한 번에 한 작업에 집중
 - 읽기 쉽고 어떤 동작을 할 수 있는지 알기 쉽게 네이밍
+
+---
+
+- 함수 선언문: 어디서든 이용 가능
+
+- 함수 표현식 : 이름 없는 함수 만들고 변수 선언해서 함수 할당, 코드에 도달해야만 생성
+
+  ```javascript
+  let sayHello = function() {
+  	console.log('Hello');
+  }
+  
+  sayHello();
+
+- 화살표 함수: function을 지우고 화살표 쓰기
+
+  ```javascript
+  let add = (num1, num2) => {
+      return num1 + num2;
+  }
+  
+  // return문이 한 줄이라면 괄호 생략 가능
+  let add = (num1, num2) => num1 + num2;
+  
+  // 인수가 하나면 괄호 생략 가능, 인수 없을 때는 괄호 생략 불가능
+  let sayHello = name => `Hello, ${name}`
+  
+
+----
+
+#### 객체
+
+- 객체 생성
+
+  ```javascript
+  const superman = {
+      name: 'clark', 
+      age: 33,
+  }
+  
+  // 접근
+  superman.name // 'clark'
+  superman['age'] // 33
+  
+  // 추가
+  superman.gender = 'male';
+  superman['hairColor'] = 'black';
+  
+  // 삭제
+  delete superman.hairColor;
+
+ - 단축 프로퍼티
+
+   ```javascript
+   const name = 'clark';
+   const age = 33;
+   
+   const superman = {
+       name, // name: name
+       age, // age: age
+       gender: 'male';
+   }
+   
+   // 프로퍼티 존재 여부 확인
+   superman.birthDay; // undefined
+   'birthDay' in superman; // false
+   'age' in superman; // true
+
+- for ... in 반복문
+
+  ```javascript
+  for(let key in superman) {
+      console.log(key)
+      console.log(superman[Key])
+  }
+
+```javascript
+function isAdult(user) {
+    if(!('age') in user) || user.age < 20) { // 해당 조건을 넣어야 나이가 입력되지 않은 인물도 거를 수 있음
+		return false;
+	}
+    return true;
+}
+
+const Mike = {
+    name: "Mike",
+    age: 30
+};
+
+const Jane = {
+    name: "Jane"
+};
+
+console.log(isAdult(jane))
+```
