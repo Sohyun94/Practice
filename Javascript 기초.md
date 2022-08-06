@@ -274,3 +274,73 @@ const Jane = {
 
 console.log(isAdult(jane))
 ```
+
+```javascript
+// 객체 for ... in
+
+const Mike = {
+    name: "Mike",
+    age: 30
+};
+
+for (x in Mike) {
+	console.log(x)
+} // name, age 출력
+
+for(x in Mike) {
+	console.log(Mike[x])
+} // Mike, 30 출력
+```
+
+----
+
+- method: 객체 프로퍼티로 할당된 함수
+
+  ```javascript
+  const superman = {
+  	name: 'clark',
+  	age: 33,
+  	fly: function() {
+  		console.log('날아갑니다.')
+  	}
+  }
+  
+  superman.fly(); // 날아갑니다. 출력
+  
+  // function 생략 가능
+   fly() {
+  	console.log('날아갑니다.')
+   }
+
+```javascript
+const user = {
+	name: 'Mike',
+    sayHello: function() {
+        // 객체 명을 직접 쓰기보다는 this를 활용하는 것이 좋다
+        console.log(`Hello, I'm ${this.name}`)
+    }
+}
+	user.sayHello(); // Hello, I'm Mike 출력
+```
+
+---
+
+- 배열: 순서가 있는 리스트
+
+  -> 문자, 숫자, 객체, 함수 등을 표현할 수 있다
+
+  .push(4) -> 배열 끝에 요소 추가
+
+  .pop() -> 배열 끝에 요소 제거
+
+  .unshift('가') -> 배열 앞에 요소 추가
+
+  .shift() -> 배열 앞에 요소 제거
+
+- 반복문: for  ... of
+
+  ```javascript
+  let Korean = ['가', '나', '다'];
+  for(let letter of Korean) {
+      console.log(letter)
+  }
